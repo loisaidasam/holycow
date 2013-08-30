@@ -1,6 +1,6 @@
 
 
-class News():
+class News(object):
     def __init__(self, results):
         self.id = results['id']
         self.description = results['description']

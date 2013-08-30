@@ -1,5 +1,3 @@
-
-
 '''
 
 The ESPN API currently only support getting all players, or player by id.
@@ -7,8 +5,7 @@ I'll have to implement a way to search by player's team or player name until
 that API is available to the public.
 '''
 
-
-class Player():
+class Athlete(object):
     ''' Stub for player class '''
     def __init__(self, results):
         self.id = results['id']

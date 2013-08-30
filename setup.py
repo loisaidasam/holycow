@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='holycow',
-      version='0.1',
+      version='0.2',
       description='ESPN Baseball API library for python',
       author='Mike Guarascio',
       author_email='michael.guarascio@gmail.com',

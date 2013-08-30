@@ -1,6 +1,6 @@
 
 
-class EventScore():
+class EventScore(object):
     ''' Only available via partner api. Very much a WIP for @baseballhackday....
         (aka, it's ugly)
     '''
