@@ -8,6 +8,6 @@ setup(name='holycow',
       author='Mike Guarascio',
       author_email='michael.guarascio@gmail.com',
       url='https://github.com/mguarascio/holycow',
-      py_modules=['holycow'],
+      packages=['holycow'],
       requires=['requests']
      )
