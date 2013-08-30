@@ -1,9 +1,8 @@
 holycow
 =======
-*A python wrapper for the ESPN API*   
-http://developer.espn.com/io-docs
+A python wrapper for the ESPN API. [Holy cow!](http://en.wikipedia.org/wiki/Phil_Rizzuto)
 
-Holy cow! (http://en.wikipedia.org/wiki/Phil_Rizzuto)
+http://developer.espn.com/docs
 
 NOTE: Still a work-in-progress. Better exception handling to come...
 
@@ -11,7 +10,6 @@ Requirements
 -----------------
 - Python 2.6 to 2.7
 - requests
-
 
 Installation
 ------------
