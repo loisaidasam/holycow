@@ -8,9 +8,9 @@ that API is available to the public.
 class Athlete(object):
     ''' Stub for player class '''
     def __init__(self, results):
-        self.id = results['id']
-        self.first_name = results['firstName']
-        self.last_name = results['lastName']
-        self.full_name = results['fullName']
-        self.display_name = results['displayName']
-        self.links = results['links']
+        self.id = results.get('id')
+        self.first_name = results.get('firstName')
+        self.last_name = results.get('lastName')
+        self.full_name = results.get('fullName')
+        self.display_name = results.get('displayName')
+        self.links = results.get('links', [])

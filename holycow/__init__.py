@@ -1,6 +1,7 @@
 
 import json
 import logging
+import time
 
 import requests
 
@@ -11,6 +12,14 @@ from scores import EventScore
 
 
 logger = logging.getLogger(__name__)
+# logger.setLevel(logging.DEBUG)
+# ch = logging.StreamHandler()
+# ch.setLevel(logging.DEBUG)
+# logger.addHandler(ch)
+
+
+class ApiRequestError(Exception):
+    pass
 
 
 class Api(object):
@@ -90,6 +99,11 @@ class Api(object):
         }
     }
 
+    STATUS_CODE_OK = 200
+    STATUS_CODE_ACCOUNT_OVER_RATE_LIMIT = 403
+    STATUS_CODE_GATEWAY_TIMEOUT = 504
+    # TODO: other statuses at http://developer.espn.com/overview
+
     def __init__(self, api_key, resource,
                  urlroot='http://api.espn.com', version='v1'):
         self.api_key = api_key
@@ -109,7 +123,14 @@ class Api(object):
                        '&enable=', ','.join(self.enables)])
         logger.debug("Making request to %s" % url)
         r = requests.get(url)
+        if r.status_code in (Api.STATUS_CODE_ACCOUNT_OVER_RATE_LIMIT,
+                             Api.STATUS_CODE_GATEWAY_TIMEOUT):
+            time.sleep(1)
+            r = requests.get(url)
+        if r.status_code != Api.STATUS_CODE_OK:
+            raise ApiRequestError("Received response %s for request to %s" % (r.status_code, url))
         response = json.loads(r.text)
+        logger.debug("Response:\n%s", response)
         return response
 
     def teams(self):
