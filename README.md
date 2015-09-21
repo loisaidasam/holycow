@@ -1,5 +1,10 @@
 holycow
 =======
+
+**UPDATE**
+
+As of May 2015, ESPN's API is deprecated!!! [http://espn.go.com/static/apis/devcenter/blog/read/publicretirement.html](http://espn.go.com/static/apis/devcenter/blog/read/publicretirement.html)
+
 A python wrapper for the ESPN API. [Holy cow!](http://en.wikipedia.org/wiki/Phil_Rizzuto)
 
 http://developer.espn.com/docs
